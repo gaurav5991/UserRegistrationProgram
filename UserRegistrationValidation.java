@@ -3,19 +3,25 @@ import java.util.regex.*;
 
 public class UserRegistrationValidation
 {	
+	static Scanner scan = new Scanner(System.in);
+	
 	public static void main(String[] args)
 	{
 		System.out.println("Welcome to User Registration Program");
 
 		UserRegistrationValidation obj = new UserRegistrationValidation();
 		
-		obj.validateFirstName();
+		boolean bool = true;
+		
+		while(bool)
+		{
+			obj.validateFirstName();
+			bool = false;
+		}
 		
 	}
 	public void validateFirstName()
 	{
-		Scanner scan = new Scanner(System.in);
-
 		System.out.println("Enter First Name: ");
 
 		String first_name = scan.nextLine();
@@ -25,8 +31,30 @@ public class UserRegistrationValidation
 		boolean result =Pattern.matches(regex, first_name);
 		
 		if(result)
+			{	
 			System.out.println("First Name is Valid");
+			validateLastName();
+			}
 		else
-			System.out.println("First Name is Invalid");
+			validateFirstName();
+	}
+
+	public void validateLastName()
+	{
+		System.out.println("Enter Last Name: ");
+		String last_name = scan.nextLine();
+		
+		String regex = "[A-Z][a-zA-Z][a-zA-Z]+";
+		
+		boolean result = Pattern.matches(regex, last_name);
+		
+		boolean bool = true;
+		
+		if(result)
+		{
+			System.out.println("Last Name is Valid");
+		}
+		else
+			validateLastName();
 	}
 }
