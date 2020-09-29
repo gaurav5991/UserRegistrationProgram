@@ -99,7 +99,7 @@ public class UserRegistrationValidation
 		System.out.println("Enter Password: ");
 		String password = scan.nextLine();
 		
-		String regex = "(?=.*[A-Z]).{8,}";
+		String regex = "^(?=.*[0-9])(?=.*[A-Z]).{8,}$";
 		
 		boolean result = Pattern.matches(regex, password);
 		
