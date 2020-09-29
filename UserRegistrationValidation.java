@@ -53,8 +53,24 @@ public class UserRegistrationValidation
 		if(result)
 		{
 			System.out.println("Last Name is Valid");
+			validateEmail();
 		}
 		else
 			validateLastName();
+	}
+
+	public void validateEmail()
+	{
+		System.out.println("Enter Email: ");
+		String email = scan.nextLine();
+		
+		String regex = "[a-zA-Z0-9]+[[._+-][a-zA-Z0-9]]*@[a-zA-Z0-9]+([.][a-zA-Z]{2,4})([.][a-zA-Z]{2,4})?";
+		
+		boolean result = Pattern.matches(regex, email);
+		
+		if(result)
+			System.out.println("Email is Valid");
+		else
+			validateEmail();
 	}
 }
