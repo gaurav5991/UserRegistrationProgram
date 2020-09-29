@@ -86,8 +86,29 @@ public class UserRegistrationValidation
 		boolean result = Pattern.matches(regex, mobile_number);
 		
 		if(result)
+		{
 			System.out.println("Mobile Number is Valid");
+			validatePassword();
+		}
 		else
 			validateMobileNumber();
+	}
+
+	public void validatePassword()
+	{
+		System.out.println("Enter Password: ");
+		String password = scan.nextLine();
+		
+		String regex = ".{8,}";
+		
+		boolean result = Pattern.matches(regex, password);
+		
+		if(result)
+		{
+			System.out.println("Valid Password");	
+			System.out.println("All fields are Valid");
+		}
+		else
+			validatePassword();
 	}
 }
