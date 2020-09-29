@@ -19,6 +19,7 @@ public class UserRegistrationValidation
 			bool = false;
 		}
 		
+		
 	}
 	public void validateFirstName()
 	{
@@ -99,7 +100,7 @@ public class UserRegistrationValidation
 		System.out.println("Enter Password: ");
 		String password = scan.nextLine();
 		
-		String regex = "^(?=.*[0-9])(?=.*[A-Z]).{8,}$";
+		String regex = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&-+=()]).{8, 20}$";
 		
 		boolean result = Pattern.matches(regex, password);
 		
