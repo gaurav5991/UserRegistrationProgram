@@ -69,8 +69,25 @@ public class UserRegistrationValidation
 		boolean result = Pattern.matches(regex, email);
 		
 		if(result)
+		{
 			System.out.println("Email is Valid");
+			validateMobileNumber();
+		}
 		else
 			validateEmail();
+	}
+	public void validateMobileNumber()
+	{
+		System.out.println("Enter Mobile Number: ");
+		String mobile_number = scan.nextLine();
+		
+		String regex = "\\d{2,3}\\s\\d{10}";
+		
+		boolean result = Pattern.matches(regex, mobile_number);
+		
+		if(result)
+			System.out.println("Mobile Number is Valid");
+		else
+			validateMobileNumber();
 	}
 }
